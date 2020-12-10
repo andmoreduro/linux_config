@@ -1,7 +1,9 @@
-zsh -c "source /home/andresm/.zshrc"
-
 set fish_greeting
 set TERM "xterm-256color"
+set BROWSER /usr/bin/google-chrome-stable
+set GOPATH /home/andresm/dev/Golang
+set -a PATH $GOPATH/bin
+set -a PATH /home/andresm/.cargo/bin
 
 ### PROMPT ###
 #function fish_prompt
