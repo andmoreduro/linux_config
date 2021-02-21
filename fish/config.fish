@@ -1,104 +1,5 @@
 set fish_greeting
-set TERM "xterm-256color"
-set BROWSER /usr/bin/google-chrome-stable
-set GOPATH /home/andresm/dev/Golang
-set -a PATH $GOPATH/bin
-set -a PATH /home/andresm/.cargo/bin
-
-### PROMPT ###
-#function fish_prompt
-#  set -l last_status $status
-#  set -l cyan (set_color -o cyan)
-#  set -l yellow (set_color -o yellow)
-#  set -g red (set_color -o red)
-#  set -g blue (set_color -o blue)
-#  set -l green (set_color -o green)
-#  set -g normal (set_color normal)
-#
-#  set -l ahead (_git_ahead)
-#  set -g whitespace ' '
-#
-#  if test $last_status = 0
-#    set initial_indicator "$green◆ $red(\$)"
-#    set status_indicator "$normal❯$green❯$blue❯"
-#  else
-#    set initial_indicator "$red✖ $last_status $red(\$)"
-#    set status_indicator "$red❯$red❯$red❯"
-#  end
-#  set -l cwd $cyan(basename (prompt_pwd))
-#
-#  if [ (_git_branch_name) ]
-#
-#    if test (_git_branch_name) = 'master'
-#      set -l git_branch (_git_branch_name)
-#      set git_info "$normal git:($red$git_branch$normal)"
-#    else
-#      set -l git_branch (_git_branch_name)
-#      set git_info "$normal git:($blue$git_branch$normal)"
-#    end
-#
-#    if [ (_is_git_dirty) ]
-#      set -l dirty "$yellow ✗"
-#      set git_info "$git_info$dirty"
-#    end
-#  end
-#
-#  # Notify if a command took more than 5 minutes
-#  if [ "$CMD_DURATION" -gt 300000 ]
-#    echo The last command took (math "$CMD_DURATION/1000") seconds.
-#  end
-#
-#  echo -n -s $initial_indicator $whitespace $cwd $git_info $whitespace $ahead $status_indicator $whitespace
-#end
-#
-#function _git_ahead
-#  set -l commits (command git rev-list --left-right '@{upstream}...HEAD' ^/dev/null)
-#  if [ $status != 0 ]
-#    return
-#  end
-#  set -l behind (count (for arg in $commits; echo $arg; end | grep '^<'))
-#  set -l ahead  (count (for arg in $commits; echo $arg; end | grep -v '^<'))
-#  switch "$ahead $behind"
-#    case ''     # no upstream
-#    case '0 0'  # equal to upstream
-#      return
-#    case '* 0'  # ahead of upstream
-#      echo "$blue↑$normal_c$ahead$whitespace"
-#    case '0 *'  # behind upstream
-#      echo "$red↓$normal_c$behind$whitespace"
-#    case '*'    # diverged from upstream
-#      echo "$blue↑$normal$ahead $red↓$normal_c$behind$whitespace"
-#  end
-#end
-#
-#function _git_branch_name
-#  echo (command git symbolic-ref HEAD ^/dev/null | sed -e 's|^refs/heads/||')
-#end
-#
-#function _is_git_dirty
-#  echo (command git status -s --ignore-submodules=dirty ^/dev/null)
-#end
-#
-#function fish_mode_prompt
-#  switch $fish_bind_mode
-#    case default
-#      echo ''
-#    case insert
-#      set_color --bold green
-#      echo '(I) '
-#    case replace_one
-#      set_color --bold green
-#      echo '(R) '
-#    case visual
-#      set_color --bold brmagenta
-#      echo '(V) '
-#    case '*'
-#      set_color --bold red
-#      echo '(?) '
-#  end
-#  set_color normal
-#end
-### END OF PROMPT ###
+set -a PATH /home/andresm/bin
 
 # Functions needed for !! and !$
 function __history_previous_command
@@ -211,11 +112,6 @@ alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
-# Confirm before overwriting something
-alias cpi="cp -i"
-alias mvi='mv -i'
-alias rmi='rm -i'
-
 # Get top process eating memory
 alias psmem='ps auxf | sort -nr -k 4'
 alias psmem10='ps auxf | sort -nr -k 4 | head -10'
@@ -235,8 +131,6 @@ alias yta-vorbis="youtube-dl --extract-audio --audio-format vorbis "
 alias yta-wav="youtube-dl --extract-audio --audio-format wav "
 alias ytv-best="youtube-dl -f bestvideo+bestaudio "
 
-# Oher stuff
-alias vim="nvim"
-
 ### STARSHIP SHELL ###
-starship init fish | source
+starship init fish | source 
+
