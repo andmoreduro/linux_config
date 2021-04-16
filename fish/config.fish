@@ -1,5 +1,7 @@
 set fish_greeting
 set -a PATH /home/andresm/bin
+set -a PATH /home/andresm/.local/bin
+set EDITOR /usr/bin/micro
 
 # Functions needed for !! and !$
 function __history_previous_command
