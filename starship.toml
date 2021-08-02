@@ -10,7 +10,6 @@ disabled = false
 [character]                         # The name of the module we are configuring is "character"
 success_symbol = "[➜](bold green)"  # The "success_symbol" is set to "➜" with color "bold green"
 error_symbol = "[✗](bold red)"
-vicmd_symbol = "[🡸](bold green)"
 
 # Use custom format
 # format = """
