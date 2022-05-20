@@ -10,3 +10,6 @@ truncation_length = 0
 
 [username]
 show_always = true
+
+[shell]
+disabled = false
